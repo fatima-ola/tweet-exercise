@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import moment from "moment";
+import PropTypes from "prop-types";
 import "./index.css";
 
 let testTweet = {
@@ -82,6 +83,21 @@ const LikeButton = ({ count }) => (
     {count > 0 && <span className="like-count">{count}</span>}
   </span>
 );
+
+LikeButton.propTypes = {
+  count: PropTypes.number,
+};
+
+RetweetButton.propTypes = {
+  count: PropTypes.number,
+};
+
+NameWithHandle.propTypes = {
+  author: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    handle: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 const MoreOptionsButton = () => (
   <i className="fa fa-ellipsis-h more-options-button" />
